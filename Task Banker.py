@@ -20,7 +20,7 @@ for t in range(500):
     for i in range(10):
         y_pred = model(x[i])
         loss = loss_fn(y_pred, y[i])
-        if t % 200 == 0:
+        if t % 100 == 0:
             print(t, loss.item())
     model.zero_grad()
     loss.backward()
@@ -30,5 +30,5 @@ for t in range(500):
             param -= learning_rate * param.grad
         
 
-W=torch.random(5,1)
-print(model(W))    
+W=torch.randn(1,5)
+print(model(W)>0)  
